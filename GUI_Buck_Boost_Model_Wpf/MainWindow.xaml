@@ -1,0 +1,134 @@
+﻿<Window x:Class="GUI_Buck_Boost_Model_Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfSerial"
+        mc:Ignorable="d"
+        Title="Programmable Solution - Buck/Boost Model - GUI         " Height="680" Width="950" ResizeMode="CanMinimize">
+    <Border>
+        <DockPanel Margin="0,10,0,-16">
+            <Grid x:Name="lbl40" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" OpacityMask="Black" Width="944">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="337*"/>
+                    <ColumnDefinition Width="484*"/>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="0*"/>
+                    <ColumnDefinition Width="0*"/>
+                    <ColumnDefinition Width="0*"/>
+                    <ColumnDefinition Width="23*"/>
+                </Grid.ColumnDefinitions>
+
+                <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" Width="885" Grid.ColumnSpan="3" Margin="25,0,0,30" Height="627" VerticalAlignment="Bottom"/>
+
+                <Rectangle Grid.ColumnSpan="3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="519" Margin="268,31,0,0" Stroke="Black" VerticalAlignment="Top" Width="642"/>
+
+                <Rectangle Grid.ColumnSpan="3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="79" Margin="25,548,0,0" Stroke="Black" VerticalAlignment="Top" Width="885"/>
+
+                <Rectangle Grid.ColumnSpan="3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="269,1,0,0" Stroke="Black" VerticalAlignment="Top" Width="641"/>
+
+                <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="31" Margin="25,1,0,0" Stroke="Black" VerticalAlignment="Top" Width="244"/>
+
+                <Button x:Name="btnSetupConnection" Content="Setup Connection" HorizontalAlignment="Left" Margin="333,555,0,0" VerticalAlignment="Top" Width="101" Height="25" Click="btnSetupConnection_Click" Grid.Column="1"/>
+                <Button x:Name="btnSaveDefaults" Content="Save Configuration" HorizontalAlignment="Left" Margin="53,560,0,0" VerticalAlignment="Top" Width="124" Height="20" Click="btnSaveDefaults_Click"/>
+                <Button x:Name="btnResetDefaults" Content="Recall" HorizontalAlignment="Left" Margin="188,560,0,0" VerticalAlignment="Top" Width="75" Click="btnResetDefaults_Click" Height="20"/>
+                <Label x:Name="lblStatus" Content="Not Connected" HorizontalAlignment="Left" Margin="53,585,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.668,0.448" Width="319" Height="24" Grid.ColumnSpan="2"/>
+                <Grid Grid.Column="1" Margin="459,555,36,55" Grid.ColumnSpan="2">
+                    <DockPanel/>
+                </Grid>
+                <Label x:Name="label" Content="Update Ratel" HorizontalAlignment="Left" Margin="40,491,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+                <Label x:Name="label1" Content="s" HorizontalAlignment="Left" Margin="231,491,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.431,0.604" Height="26" Width="15"/>
+                <ComboBox x:Name="cmbMainUpdateRate" HorizontalAlignment="Left" Margin="117,491,0,0" VerticalAlignment="Top" Width="105" SelectionChanged="cmbMainUpdateRate_SelectionChanged" Height="22"/>
+                <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="txtVout" TextWrapping="Wrap" Width="105" Margin="141,62,0,0" Height="21" TextChanged="txtVout_TextChanged"/>
+                <Label x:Name="label2" Content="Monitor" HorizontalAlignment="Left" Margin="121,0,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="56"/>
+                <Label x:Name="label3" Content="V Out (V)" HorizontalAlignment="Left" Margin="83,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.316,0.192" Height="26" Width="58"/>
+                <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="txtIpri" TextWrapping="Wrap" Width="105" Margin="141,207,0,0" Height="21" TextChanged="txtIpri_TextChanged"/>
+                <Label x:Name="lblIpfc1" Content="I In (A)" HorizontalAlignment="Left" Margin="93,204,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.316,0.192" Height="26" Width="48"/>
+                <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="txtIout" TextWrapping="Wrap" Width="105" Margin="141,99,0,0" Height="21" TextChanged="txtIout_TextChanged"/>
+                <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="txtVin" TextWrapping="Wrap" Width="105" Margin="141,169,0,0" Height="21" TextChanged="txtVin_TextChanged"/>
+                <Label Content="V In (V)" HorizontalAlignment="Left" Margin="89,164,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.316,0.192" Height="26" Width="48"/>
+                <Label Content="I Load (A)" HorizontalAlignment="Left" Margin="80,96,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.316,0.192" Height="26" Width="61"/>
+                <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="txtModelFreq" TextWrapping="Wrap" Width="4" Margin="63,509,0,0" Height="3" RenderTransformOrigin="0.412,2.476" TextChanged="txtModelFreq_TextChanged">
+                    <TextBox.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBox.RenderTransform>
+                </TextBox>
+                <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="txtFaultFlg" TextWrapping="Wrap" Width="59" Margin="141,328,0,0" Height="20" RenderTransformOrigin="0.412,2.476" TextChanged="txtFaultFlg_TextChanged"/>
+                <Label x:Name="Label" Content="Power Out (W)" HorizontalAlignment="Left" Margin="53,132,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.316,0.192" Height="26" Width="88"/>
+                <Label x:Name="Label4" Content="Fault Flag" HorizontalAlignment="Left" Margin="76,322,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.316,0.192" Height="26" Width="61"/>
+                <Label x:Name="label6" Content="Ticks" HorizontalAlignment="Left" Margin="76,522,0,0" VerticalAlignment="Top" Height="26" Width="36"/>
+                <Label x:Name="lblTicks" Content="0" HorizontalAlignment="Left" Margin="117,522,0,0" VerticalAlignment="Top" Width="105" Height="23"/>
+                <Label x:Name="lblSubTitle" Content="Power Stage Parameters&#xA;" HorizontalAlignment="Left" Margin="163,0,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="157" RenderTransformOrigin="6.929,1.462" Grid.Column="1"/>
+                <Label x:Name="lbl28" Content="Celec (uF)" HorizontalAlignment="Left" Margin="66,170,0,0" VerticalAlignment="Top" Height="26" Width="63" Grid.Column="1"/>
+                <Label x:Name="lbl32" Content="PWM Sw. Freq (Khz)" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.487,1.269" Height="26" Width="119" Grid.Column="1"/>
+                <Label x:Name="lbl22" Content="Vin (V)" HorizontalAlignment="Left" Margin="81,94,0,0" VerticalAlignment="Top" Height="26" Width="48" Grid.Column="1"/>
+                <Label x:Name="lbl14" Content="DCR (Ohms)&#xA;" HorizontalAlignment="Left" Margin="209,132,0,0" VerticalAlignment="Top" Height="26" Width="81" Grid.Column="1" RenderTransformOrigin="-0.012,0.538"/>
+                <Label x:Name="lbl13" Content="L (uH)&#xA;" HorizontalAlignment="Left" Margin="86,132,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.923" Height="26" Width="43" Grid.Column="1"/>
+                <Button x:Name="btnCntl_Calc" Content="Push" Grid.Column="1" HorizontalAlignment="Left" Margin="147,498,0,0" VerticalAlignment="Top" Width="52" RenderTransformOrigin="-0.522,-2.95" Click="btnCntl_Calc_Click" Height="26"/>
+                <TextBox x:Name="txtInductor_L" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="146,135,0,0" TextWrapping="Wrap" Text="4.8" VerticalAlignment="Top" Width="44" RenderTransformOrigin="0.909,0.522" TextChanged="txtInductor_L_TextChanged"/>
+                <TextBox x:Name="txtCelec" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="146,173,0,0" TextWrapping="Wrap" Text="330" VerticalAlignment="Top" Width="44" RenderTransformOrigin="0.909,0.522" TextChanged="txtCelec_TextChanged"/>
+                <TextBox x:Name="txtDCR" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="311,136,0,0" TextWrapping="Wrap" Text="0.0105" VerticalAlignment="Top" Width="47" RenderTransformOrigin="0.909,0.522" TextChanged="txtDCR_TextChanged"/>
+                <TextBox x:Name="txtSetVin" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="146,99,0,0" TextWrapping="Wrap" Text="9" VerticalAlignment="Top" Width="44" RenderTransformOrigin="0.909,0.522" TextChanged="txtSetVin_TextChanged"/>
+                <TextBox x:Name="txtSetPwmSwFreq" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="147,62,0,0" TextWrapping="Wrap" Text="200" VerticalAlignment="Top" Width="44" RenderTransformOrigin="-0.205,-0.391" TextChanged="txtSetPwmSwFreq_TextChanged"/>
+                <Label x:Name="lbl31" Content="Update Parameters" HorizontalAlignment="Left" Margin="209,499,0,0" VerticalAlignment="Top" Grid.Column="1" RenderTransformOrigin="2.471,-0.423" Height="26" Width="111"/>
+                <Label x:Name="label36" Content="ESRelec (Ohms)" HorizontalAlignment="Left" Margin="209,171,0,0" VerticalAlignment="Top" Grid.Column="1" RenderTransformOrigin="2.471,-0.423" Height="26" Width="97"/>
+                <Label x:Name="label7" Content="ESRcer (Ohms)" HorizontalAlignment="Left" Margin="209,201,0,0" VerticalAlignment="Top" Grid.Column="1" RenderTransformOrigin="2.471,-0.423" Height="26" Width="98"/>
+                <Label x:Name="label44" Content="Ccer (uF)" HorizontalAlignment="Left" Margin="73,201,0,0" VerticalAlignment="Top" Grid.Column="1" RenderTransformOrigin="2.471,-0.423" Height="26" Width="56"/>
+                <TextBox x:Name="txtESRelec" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="311,173,0,0" TextWrapping="Wrap" Text="0.150" VerticalAlignment="Top" Width="48" TextChanged="txtESRelec_TextChanged"/>
+                <TextBox x:Name="txtVoutMS" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="21,235,0,0" Text="6.09" VerticalAlignment="Top" Width="43" RenderTransformOrigin="0.194,0.478" TextChanged="txtVoutMS_TextChanged" IsUndoEnabled="False"/>
+                <Label x:Name="label9" Content="Max Sense (V)" HorizontalAlignment="Left" Margin="389,235,0,0" VerticalAlignment="Top" Grid.Column="1" RenderTransformOrigin="2.471,-0.423" Height="26" Width="88"/>
+                <TextBox x:Name="txtESRcer" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="312,201,0,0" TextWrapping="Wrap" Text="0.002" VerticalAlignment="Top" Width="47" TextChanged="txtESRcer_TextChanged"/>
+                <TextBox x:Name="txtCcer" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="146,201,0,0" TextWrapping="Wrap" Text="66" VerticalAlignment="Top" Width="41" TextChanged="txtCcer_TextChanged"/>
+                <Label x:Name="label15" Content="Max Sense (V)" HorizontalAlignment="Left" Margin="389,309,0,0" VerticalAlignment="Top" Grid.Column="1" RenderTransformOrigin="2.471,-0.423" Height="26" Width="88"/>
+                <Label x:Name="label14" Content="Cut-off Freq (Khz)" HorizontalAlignment="Left" Margin="389,263,0,0" VerticalAlignment="Top" Grid.Column="1" RenderTransformOrigin="2.471,-0.423" Height="26" Width="104" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="txtVinMS" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="21,309,0,0" TextWrapping="Wrap" Text="12.09" VerticalAlignment="Top" Width="43" RenderTransformOrigin="0.194,0.478" TextChanged="txtVinMS_TextChanged"/>
+                <TextBox x:Name="txtVoutCOF" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="21,266,0,0" TextWrapping="Wrap" Text="48.253" VerticalAlignment="Top" Width="43" RenderTransformOrigin="0.194,0.478" TextChanged="txtVoutCOF_TextChanged"/>
+                <Button x:Name="btnConnect" Content="Connect" HorizontalAlignment="Left" Margin="474,555,0,0" VerticalAlignment="Top" Width="74" Height="25" Click="btnConnect_Click" Grid.Column="1" RenderTransformOrigin="0.614,0.08" Grid.ColumnSpan="2"/>
+                <Label x:Name="lbl104" Content="LoadLo (Ohm)&#xA;" HorizontalAlignment="Left" Margin="49,460,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.923" Height="26" Width="120" Grid.Column="1"/>
+                <TextBox x:Name="txtIloadLo" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="144,461,0,0" TextWrapping="Wrap" Text="7.5" VerticalAlignment="Top" Width="49" RenderTransformOrigin="0.909,0.522" TextChanged="txtIloadLo_TextChanged"/>
+                <Label x:Name="lbl101" Content="Cut-off Freq (Khz)&#xA;" HorizontalAlignment="Left" Margin="389,381,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.923" Height="26" Width="134" Grid.Column="1" Grid.ColumnSpan="2"/>
+                <Label x:Name="lbl102" Content="RdsQ1 (Ohm)&#xA;" HorizontalAlignment="Left" Margin="53,413,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.923" Height="26" Width="87" Grid.Column="1"/>
+                <TextBox x:Name="txtRdsQ1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="144,416,0,0" TextWrapping="Wrap" Text="0.008" VerticalAlignment="Top" Width="49" RenderTransformOrigin="0.909,0.522" TextChanged="txtRdsQ1_TextChanged"/>
+                <Label x:Name="lbl103" Content="RdsQ2 (Ohm)&#xA;" HorizontalAlignment="Left" Margin="209,413,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.923" Height="26" Width="91" Grid.Column="1"/>
+                <TextBox x:Name="txtRdsQ2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="312,416,0,0" TextWrapping="Wrap" Text="0.0029" VerticalAlignment="Top" Width="44" RenderTransformOrigin="0.909,0.522" TextChanged="txtRdsQ2_TextChanged"/>
+                <Label x:Name="lbl100" Content="Max Sense (Amp)" HorizontalAlignment="Left" Margin="389,349,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.923" Height="26" Width="105" Grid.Column="1" Grid.ColumnSpan="2"/>
+                <Label x:Name="lbl105" Content="LoadHi (Ohm)&#xA;" HorizontalAlignment="Left" Margin="209,457,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.923" Height="26" Width="110" Grid.Column="1"/>
+                <TextBox x:Name="txtIloadHi" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="312,460,0,0" TextWrapping="Wrap" Text="2.0" VerticalAlignment="Top" Width="44" RenderTransformOrigin="0.909,0.522" TextChanged="txtIloadHi_TextChanged"/>
+                <Label x:Name="lbl106" Content="Iout LoadCC (A)&#xA;" HorizontalAlignment="Left" Margin="389,457,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.923" Height="26" Width="101" Grid.Column="1" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="txtIloadCC" HorizontalAlignment="Left" Height="23" Margin="21,460,0,0" TextWrapping="Wrap" Text="0.1" VerticalAlignment="Top" Width="44" RenderTransformOrigin="0.909,0.522" TextChanged="txtIloadCC_TextChanged" Grid.Column="2"/>
+                <Label x:Name="label4" Content="Fsw:" HorizontalAlignment="Left" Margin="297,60,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="label5" Content="Nominal Values:" HorizontalAlignment="Left" Margin="297,94,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2" Width="111"/>
+                <Label x:Name="label8" Content="Inductor:" HorizontalAlignment="Left" Margin="297,132,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2" Width="60"/>
+                <TextBox x:Name="txtIindMS" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="20,352,0,0" TextWrapping="Wrap" Text="6.83" VerticalAlignment="Top" Width="44" RenderTransformOrigin="0.5,0.5" TextChanged="txtIindMS_TextChanged"/>
+                <TextBox x:Name="txtIlCOF" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="21,384,0,0" TextWrapping="Wrap" Text="4.8253" VerticalAlignment="Top" Width="44" RenderTransformOrigin="0.909,0.522" TextChanged="txtIlCOF_TextChanged"/>
+                <Label x:Name="lbl107" Content="Max Sense (Amp)&#xA;" HorizontalAlignment="Left" Margin="389,500,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.923" Height="26" Width="101" Grid.Column="1" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="txtIloadMS" HorizontalAlignment="Left" Height="23" Margin="20,501,0,0" TextWrapping="Wrap" Text="6.83" VerticalAlignment="Top" Width="44" RenderTransformOrigin="0.909,0.522" TextChanged="txtIloadMS_TextChanged" Grid.Column="2"/>
+                <Label x:Name="Output_Cap_" Content="Output Cap:" HorizontalAlignment="Left" Margin="297,170,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="93" FontWeight="Bold"/>
+                <Label x:Name="label10" Content="Vout Sense:" HorizontalAlignment="Left" Margin="297,235,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                <Label x:Name="label11" Content="Vin Sense:" HorizontalAlignment="Left" Margin="297,309,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                <Label x:Name="label12" Content="Il Sense:" HorizontalAlignment="Left" Margin="297,349,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                <Label x:Name="label44_Copy" Content="Rcs (Ohm)" HorizontalAlignment="Left" Margin="68,352,0,0" VerticalAlignment="Top" Grid.Column="1" RenderTransformOrigin="2.471,-0.423" Height="26" Width="72"/>
+                <TextBox x:Name="txtIsRCS" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="144,352,0,0" TextWrapping="Wrap" Text="0.03" VerticalAlignment="Top" Width="44" TextChanged="txtIsRCS_TextChanged"/>
+                <Label x:Name="label13" Content="FET Rds ON:" HorizontalAlignment="Left" Margin="294,413,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                <Label x:Name="label16" Content="Iout Load:" HorizontalAlignment="Left" Margin="297,460,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                <Label x:Name="lblModelFreq" Content="0" HorizontalAlignment="Left" Margin="141,287,0,0" VerticalAlignment="Top" Width="105"/>
+                <Label x:Name="lblModel" Content="x" HorizontalAlignment="Left" Margin="53,585,0,0" VerticalAlignment="Top" Width="68" Grid.Column="1"/>
+                <Label x:Name="lblPowerOut" Content="0" HorizontalAlignment="Left" Margin="141,132,0,0" VerticalAlignment="Top" Width="105"/>
+                <Label x:Name="lblPowerIn" Content="0" HorizontalAlignment="Left" Margin="141,245,0,0" VerticalAlignment="Top" Width="105"/>
+                <Label x:Name="Label_PI" Content="Power In (W)" HorizontalAlignment="Left" Margin="59,245,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.316,0.192" Height="26" Width="77"/>
+                <Label x:Name="Label_PI_Copy" Content="Model Freq (MHz)" HorizontalAlignment="Left" Margin="31,287,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.316,0.192" Height="26" Width="105"/>
+                <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="txtDutyCycle" TextWrapping="Wrap" Width="59" Margin="141,366,0,0" Height="20" RenderTransformOrigin="0.412,2.476" TextChanged="txtDutyCycle_TextChanged"/>
+                <Label x:Name="LabelDutyCycle" Content="Duty Cycle (%)" HorizontalAlignment="Left" Margin="50,360,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.316,0.192" Height="26" Width="87"/>
+                <Label x:Name="lblEfficiency" Content="0" HorizontalAlignment="Left" Margin="141,403,0,0" VerticalAlignment="Top" Width="105"/>
+                <Label x:Name="Label_Effic" Content="Efficiency (%)" HorizontalAlignment="Left" Margin="57,403,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.316,0.192" Height="26" Width="79"/>
+
+            </Grid>
+            <Border BorderBrush="Black" BorderThickness="1" Height="14" VerticalAlignment="Top" Width="17"/>
+        </DockPanel>
+    </Border>
+</Window>
